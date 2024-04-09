@@ -1,0 +1,8 @@
+{
+  "appId": "com.replaceLater.myapp",
+  "appName": "Digital Garden",
+  "webDir": "C:\\Users\\dysun\\Desktop\\REPOSITORIES\\React\\MQTT react app",
+  "server": {
+    "androidScheme": "https"
+  }
+}
