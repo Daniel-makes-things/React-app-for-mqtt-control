@@ -1,0 +1,22 @@
+{
+  "name": "mqtt-client",
+  "version": "1.0.0",
+  "description": "fill this out later lol",
+  "main": "index.js",
+  "scripts": {
+    "test": "/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/change-me"
+  },
+  "keywords": [
+    "mqtt"
+  ],
+  "author": "Dan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mqtt": "^5.5.3"
+  }
+}
