@@ -1,50 +1,37 @@
-import './App.css';
-import { useEffect, useState } from 'react';
-import * as Paho from 'paho-mqtt';
-import Card from './components/Card/Card';
+import { Outlet } from "react-router-dom";
+
+/* Core CSS required for Ionic components to work properly */
+import "@ionic/react/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
+
+/* Optional CSS utils that can be commented out */
+import "@ionic/react/css/padding.css";
+import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/text-alignment.css";
+import "@ionic/react/css/text-transformation.css";
+import "@ionic/react/css/flex-utils.css";
+import "@ionic/react/css/display.css";
+import { IonHeader, IonTitle, IonToolbar, setupIonicReact } from "@ionic/react";
+
+import "./Theme/Variables.css";
+
+setupIonicReact();
 
 function App() {
-  const [messages, setMessages] = useState<any[]>([]);
-
-  useEffect(() => {
-    const client = new Paho.Client('127.0.0.1', 9001, 'clientId');
-    client.connect({
-      userName: 'test',
-      password: 'secret',
-      onSuccess() {
-        client.subscribe('sensors/temperature-humidity');
-      },
-    });
-
-    client.onMessageArrived = (message) => {
-      const payload = JSON.parse(message.payloadString);
-      setMessages((prevMessages) => {
-        const newMessages = [...prevMessages, payload];
-        return newMessages.length > 10 ? newMessages.slice(1) : newMessages;
-      });
-    };
-
-    return () => {
-      client.disconnect();
-    };
-  }, []);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        {messages.map((message, index) => (
-          // should use the children prop but i'm lazy rn
-          <div className='px-4 pt-4'>
-            <Card 
-              key={index}
-              timestamp={new Date(message.timestamp).toLocaleDateString()}
-              temp={message.temperature.toFixed(2)}
-              humidity={message.humidity.toFixed(2)}
-            />
-          </div>
-        ))}
-      </header>
-    </div>
+    <>
+      <IonHeader>
+        <IonToolbar color="primary">
+          <IonTitle> My lil app </IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      ;
+      <Outlet />
+    </>
   );
 }
 
