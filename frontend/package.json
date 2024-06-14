@@ -20,11 +20,13 @@
     "@types/react-dom": "^18.2.25",
     "ionic": "^5.4.16",
     "ionicons": "^7.4.0",
+    "mqtt": "^5.7.0",
     "paho-mqtt": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
+    "react-use-websocket": "^4.8.1",
     "save-dev": "^0.0.1-security",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
