@@ -7,25 +7,15 @@ import {
 } from "@ionic/react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import useWebSocket from "react-use-websocket";
-//import MqttSubscriber from "./mqttSubscriber";
+import MqttDataFeeder from "./MqttDataFeeder";
 
 function Dashboard() {
-  const [selectedTopic, setSelectedTopic] = useState("test"); //intial
-  const [message, setmessage] = useState("");
-  const handleMqttMessage = (message: string) => {
-    console.log("received", message);
-  };
+  const selectedTopic = "test";
 
   return (
-    /* <div>
-      <MqttSubscriber
-        brokerUrl=" mqtt://10.0.0.17"
-        topic="test"
-        onMessage={handleMqttMessage}
-      />
-    </div> */
-    <>
+    <div>
+      <MqttDataFeeder topic={selectedTopic} />
+      {/* 
       <h2>Dashboard</h2>
       <IonList>
         <IonItem>
@@ -41,8 +31,9 @@ function Dashboard() {
           </IonSelect>
         </IonItem>
       </IonList>
+ */}
       <Link to="/">Back to Login </Link>
-    </>
+    </div>
   );
 }
 
